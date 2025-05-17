@@ -29,7 +29,9 @@ pipeline {
                 script {
                     // Update green deployment YAML dynamically
                     sh """
-                    sed 's|blue-green:.*|blue-green:$VERSION|' k8s/deployment-green.yaml > temp-green.yaml
+            sed -e "s|image: zoroozz/blue-green:.*|image: zoroozz/blue-green:$VERSION|" \\
+                -e "s|value: \\".* (Green)\\"|value: \\"$VERSION (Green)\\"|" \\
+                k8s/deployment-green.yaml > temp-green.yaml
                     kubectl apply -f temp-green.yaml
                     kubectl apply -f k8s/service.yaml
                     """
