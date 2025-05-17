@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: zoroozz/myapp:v1
+        image: zoroozz/blue-green:v1
         ports:
         - containerPort: 3000
         env:
