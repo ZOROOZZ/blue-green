@@ -40,7 +40,7 @@ pipeline {
         stage('Health Check') {
             steps {
                 script {
-                    def ip = sh(script: "minikube ip || hostname -I | awk '{print $1}'", returnStdout: true).trim()
+                    def ip = sh(script: "minikube ip || hostname -I | awk '{print \$1}'", returnStdout: true).trim()
                     def code = sh(script: "curl -s -o /dev/null -w '%{http_code}' http://$ip", returnStdout: true).trim()
                     if (code != "200") {
                         error "Health check failed with HTTP code $code"
