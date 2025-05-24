@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
       </style>
     </head>
     <body>
-      <h1>👋 Hello, ZORO!</h1>
+      <h1>👋 Hello, yooo!</h1>
       <p>Welcome to <strong>Nice App</strong></p>
       <p>Running version: <strong>${VERSION}</strong></p>
     </body>
